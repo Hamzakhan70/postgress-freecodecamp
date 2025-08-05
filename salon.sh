@@ -1,9 +1,8 @@
 #!/bin/bash
 
-#!/bin/bash
-
 # Connect to database and show available services
-PSQL="psql -X --username=freecodecamp --dbname=salon --tuples-only -c"
+PSQL="psql -X --username=postgres --dbname=salon --tuples-only -c"
+
 
 echo -e "\n~~~~~ MY SALON ~~~~~\n"
 echo -e "Welcome to My Salon, how can I help you?\n"
@@ -45,7 +44,8 @@ MAIN_MENU() {
 
     $PSQL "INSERT INTO appointments(customer_id, service_id, time) VALUES($CUSTOMER_ID, $SERVICE_ID_SELECTED, '$SERVICE_TIME')"
 
-    echo -e "\nI have put you down for a $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME."
+ echo -e "\nI have put you down for a $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME."
+
   fi
 }
 
